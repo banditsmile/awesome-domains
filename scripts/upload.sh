@@ -1,0 +1,1 @@
+nohup find output -type f -name "*.ico" -print0 | xargs -0 -I {} -P 5 bash -c 'filename=$(basename {}); curl https://icon.matlab.run/$filename -X PUT --data-binary @"{}"' > logs/upload.log 2>&1 &
